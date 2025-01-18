@@ -1,0 +1,16 @@
+s='09113002'
+m=[]
+for i in range(1, len(s)):
+    if s[i] not in m:
+        m.append(s[i])
+s=s*6
+while '0' in s or '00' in s:
+    for i in range(0, len(s)-1):
+        if s[i] == '0':
+            s=s.replace(s[i],s[i+1],1)
+        if s[i]+s[i+1] == '00':
+            s=s.replace(s[i],s[0],1)
+            s=s.replace(s[i+1],s[7],1)
+for i in range(0,len(m)):
+    k=s.count(m[i])
+    print(m[i],k)
